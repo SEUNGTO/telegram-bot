@@ -15,16 +15,16 @@ tg_app = ApplicationBuilder().token(TOKEN).build()
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("웹훅으로 다시 태어난 봇입니다! 🚀")
 
-tg_app.add_handler(CommandHandler("start", start))
+tg_app.add_handler(CommandHandler("시작", start))
 
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     help_message = """
-"/help" : command 보기
-"/start" : 인사말
+/명령어 : command 보기
+/시작 : 인사말
 """
     await update.message.reply_text(help_message)
-tg_app.add_handler(CommandHandler("help", help))
+tg_app.add_handler(CommandHandler("명령어", help))
 
 # 3. 텔레그램 서버가 호출할 'Webhook' 경로
 @app.post("/webhook")
