@@ -17,6 +17,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 tg_app.add_handler(CommandHandler("start", start))
 
+async def help(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    help_message = """
+"/help" : command 보기
+"/start" : 인사말
+"""
+    await update.message.reply_text(help_message)
+tg_app.add_handler(CommandHandler("help", help))
+
 # 3. 텔레그램 서버가 호출할 'Webhook' 경로
 @app.post("/webhook")
 async def webhook_handler(request: Request):
